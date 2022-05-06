@@ -1,0 +1,23 @@
+{
+  "name": "@rajasardar/vcli",
+  "version": "1.0.6",
+  "description": "First npm CLI tool published",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/nipeshkc7/npm-publish-demo",
+  "homepage": "https://github.com/nipeshkc7/npm-publish-demo#readme",
+  "bin": "./index.js",
+  "keywords": [
+    "cli",
+    "npmtool"
+  ],
+  "author": "Raja Sardar",
+  "license": "ISC",
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "cli-progress": "^3.11.0",
+    "inquirer": "^8.2.4"
+  }
+}
