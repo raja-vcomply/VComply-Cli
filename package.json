@@ -1,6 +1,6 @@
 {
   "name": "@rajasardar/vcli",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "First npm CLI tool published",
   "main": "index.js",
   "scripts": {
