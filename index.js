@@ -2,26 +2,32 @@
 let exec = require('child_process').exec;
 const cliProgress = require('cli-progress');
 const inquirer = require('inquirer');
-// const axios = require('axios');
 const bar1 = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
 let child;
 let nameData;
+let stage;
 const questions = [
   {
     type: 'input',
     name: 'name',
     message: "Deploy or Remove ?\nFor Deploy type 'deploy'\nFor Remove type 'remove'\nFor Serverless offline type 'offline'\n",
-  },
+  },{
+    type: 'input',
+    name: 'stage',
+    message: "Stage dev, beta or prod?\nFor dev type 'dev'\nFor beta type 'beta'\nFor prod type 'prod'\n",
+  }
 ];
 
 (async ()=>{
     let inputFunction = await inquirer.prompt(questions).then(answers => {
         nameData = answers.name;
+        stage = answers.stage;
+        stage = stage.toLowerCase();
         nameData = nameData.toLowerCase();
-          console.log(`You Choose ${answers.name}!`);
+          console.log(`You Choose type: ${answers.name}!\nYou Choose stage: ${answers.stage}!`);
           console.log(nameData);
-        if(nameData !== 'deploy' && nameData !== 'remove' && nameData !== 'offline'){
-            console.log('Please choose deploy, remove or offline');
+        if(nameData !== 'deploy' && nameData !== 'remove' && nameData !== 'offline' && stage !== 'dev' && stage !== 'beta' && stage !== 'prod'){
+            console.log('Please choose correct type and stage');
             inputFunction();
         }
         });
@@ -33,7 +39,7 @@ const questions = [
                 speed: '10%',
             });
         }, 1500);
-        child = exec(`sls ${nameData} --stage=dev --param="test= "`,
+        child = exec(`sls ${nameData} --stage=${stage} --param="test= "`,
             function (error, stdout, stderr) {
                 bar1.update(100);
                 bar1.stop();
