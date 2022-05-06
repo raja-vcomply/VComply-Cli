@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": "https://github.com/nipeshkc7/npm-publish-demo",
-  "homepage": "https://github.com/nipeshkc7/npm-publish-demo#readme",
+  "repository": "https://github.com/raja-vcomply/VComply-Cli",
+  "homepage": "https://github.com/raja-vcomply/VComply-Cli#readme",
   "bin": "./index.js",
   "keywords": [
     "cli",
